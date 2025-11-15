@@ -26,22 +26,27 @@
     line-height: 1.6;
   }
 
-  /* Hero di atas */
   .hero {
     text-align: center;
     margin-bottom: 2rem;
   }
 
   .hero h1 {
-    font-size: 2rem;
-    margin-bottom: 0.25rem;
+    font-size: 2.1rem;
+    margin-bottom: 0.4rem;
   }
 
   .hero h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #4b5563;
     margin-top: 0;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin-top: 0.3rem;
   }
 
   .hero-tags {
@@ -60,7 +65,6 @@
     font-size: 0.8rem;
   }
 
-  /* Box highlight */
   .callout {
     border-left: 4px solid #2563eb;
     background: #eff5ff;
@@ -74,12 +78,11 @@
     color: #1d4ed8;
   }
 
-  /* Navigasi cepat */
   .nav-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 0.8rem;
-    margin: 1rem 0 1.5rem 0;
+    margin: 1rem 0 1.8rem 0;
   }
 
   .nav-card {
@@ -95,7 +98,7 @@
   }
 
   .nav-card p {
-    margin: 0 0 0.2rem 0;
+    margin: 0 0 0.35rem 0;
     font-size: 0.9rem;
   }
 
@@ -110,7 +113,6 @@
     text-decoration: underline;
   }
 
-  /* Tabel navigasi di bawah */
   table {
     border-collapse: collapse;
     width: 100%;
@@ -126,7 +128,6 @@
     background: #f3f4f6;
   }
 
-  /* Tombol teks */
   .btn-link {
     display: inline-block;
     padding: 0.45rem 0.85rem;
@@ -142,35 +143,39 @@
     background: #1d4ed8;
     text-decoration: none;
   }
-
-  /* Biar isi index dibungkus main */
 </style>
 
+<main>
 
-<div align="center">
+<div class="hero">
 
 # 📊🗺️ Modul Pelatihan  
 ## Pembuatan & Analisis Peta **Tren & Hotspot Serangan OPT** dengan QGIS  
-*(Data Triwulanan 2018–2025 per Kab/Kota)*
 
----
+<div class="hero-sub">
+(Data Triwulanan 2018–2025 per Kab/Kota)
+</div>
 
-**Disusun oleh:**  
-🧑‍🏫 **Masita Dwi Mandini Manessa**
+<div class="hero-sub">
+Disusun oleh <strong>Masita Dwi Mandini Manessa</strong><br>
+untuk <strong>Direktorat Jenderal Perkebunan, Kementerian Pertanian</strong>
+</div>
 
-**Untuk:**  
-🌱 **Direktorat Jenderal Perkebunan**  
-**Kementerian Pertanian**
+<div class="hero-tags">
+  <span class="hero-tag">QGIS</span>
+  <span class="hero-tag">Analisis Spasial</span>
+  <span class="hero-tag">Tren Serangan OPT</span>
+  <span class="hero-tag">Hotspot Kab/Kota</span>
+</div>
 
 </div>
 
----
-
-> 💡 **Singkatnya modul ini apa?**  
-> Kita akan mengubah **tabel statistik serangan OPT** (2018–2025, per kab/kota, per triwulan) menjadi  
-> **peta tren** dan **peta hotspot** di QGIS untuk membantu penentuan wilayah prioritas pengendalian.
-
----
+<div class="callout">
+  <strong>Singkatnya modul ini apa?</strong><br>
+  Kita akan mengubah <em>tabel statistik serangan OPT</em> (2018–2025, per kab/kota, per triwulan)
+  menjadi <strong>peta tren</strong> dan <strong>peta hotspot</strong> di QGIS untuk membantu
+  penentuan wilayah prioritas pengendalian.
+</div>
 
 ## 🎯 1. Latar Belakang
 
@@ -180,7 +185,7 @@ Serangan Organisme Pengganggu Tanaman (OPT) berkontribusi langsung terhadap:
 - Peningkatan biaya pengendalian.
 - Kerugian ekonomi petani dan pelaku usaha.
 
-Data statistik serangan OPT sebenarnya sudah rutin dikumpulkan per kabupaten/kota, tahun, dan periode tanam (misalnya per triwulan). Namun, ketika hanya disajikan dalam bentuk tabel, seringkali:
+Data statistik serangan OPT sudah dikumpulkan rutin per kabupaten/kota, tahun, dan periode tanam (misalnya per triwulan). Namun ketika hanya disajikan dalam bentuk tabel, seringkali:
 
 - Sulit terlihat **pola spasial** → kabupaten/kota mana yang paling terdampak?
 - Sulit terbaca **pola temporal** → tren serangan naik, turun, atau stabil?
@@ -217,7 +222,7 @@ Setelah mengikuti pelatihan dan mempelajari modul ini, peserta diharapkan mampu:
 
 ## 👥 3. Sasaran Peserta & Prasyarat
 
-### 3.1. Siapa yang cocok ikut?
+### 3.1. Sasaran Peserta
 
 Modul ini ditujukan terutama untuk:
 
@@ -226,13 +231,13 @@ Modul ini ditujukan terutama untuk:
 - Peneliti/mahasiswa di bidang perlindungan tanaman, agronomi, atau geografi.
 - Operator GIS di instansi pusat/daerah.
 
-### 3.2. Prasyarat minimal
+### 3.2. Prasyarat Minimal
 
 Tidak perlu mahir GIS, cukup:
 
 - Mampu mengoperasikan komputer (folder, file, copy–paste).
 - Memahami konsep dasar wilayah administrasi kabupaten/kota.
-- Pernah melihat atau membuka QGIS akan membantu, tapi **tidak wajib**.
+- Pernah melihat atau membuka QGIS akan membantu, tetapi **tidak wajib**.
 
 ---
 
@@ -240,49 +245,27 @@ Tidak perlu mahir GIS, cukup:
 
 Modul dibagi menjadi beberapa bagian utama:
 
----
+<div class="nav-grid">
 
-### 📘 4.1. Pendahuluan & Konsep Dasar
+  <div class="nav-card">
+    <h3>📘 Pendahuluan & Konsep Dasar</h3>
+    <p>Latar belakang, alur pikir, dan peran peta tren & hotspot dalam analisis serangan OPT.</p>
+    <a href="./01_pendahuluan.html">Buka Pendahuluan →</a>
+  </div>
 
-- Latar belakang pemanfaatan SIG untuk analisis serangan OPT.
-- Gambaran umum konsep **tren** dan **hotspot** dalam konteks kabupaten/kota.
-- Alur kerja dari **data tabel → peta → informasi kebijakan**.
+  <div class="nav-card">
+    <h3>🖥️ Perangkat & Data</h3>
+    <p>Instalasi QGIS, struktur data spasial kab/kota, dan data statistik serangan OPT 2018–2025.</p>
+    <a href="./02_data.html">Buka Perangkat & Data →</a>
+  </div>
 
-➡️ **Baca:** [Pendahuluan](./01_pendahuluan.html)
+  <div class="nav-card">
+    <h3>🧪 Praktikum QGIS</h3>
+    <p>Langkah demi langkah: join data, indikator turunan, peta tren, hotspot, dan layout peta.</p>
+    <a href="./03_praktikum.html">Buka Praktikum →</a>
+  </div>
 
----
-
-### 🖥️ 4.2. Perangkat & Data yang Dibutuhkan
-
-- Petunjuk singkat instalasi QGIS.
-- Spesifikasi data spasial:
-  - Peta administrasi kab/kota (Shapefile/GeoPackage).
-- Spesifikasi data statistik serangan OPT:
-  - Per kab/kota, per tahun, per triwulan (2018–2025).
-- Rekomendasi penyiapan:
-  - Dataset *long* (1 baris = kab/kota–tahun–triwulan).
-  - Dataset ringkasan untuk analisis tren & hotspot.
-
-➡️ **Baca:** [Perangkat dan Data](./02_data.html)
-
----
-
-### 🧪 4.3. Praktikum QGIS Langkah demi Langkah
-
-Ini adalah bagian inti modul (hands-on):
-
-- Menyiapkan proyek QGIS & memuat peta kab/kota.
-- Mengimpor & merapikan tabel serangan OPT.
-- Join tabel OPT ke poligon kab/kota.
-- Menghitung indikator turunan (Field Calculator).
-- Membuat peta tren:
-  - Triwulanan
-  - Tahunan
-  - Multi-tahun (rata-rata dan tren)
-- Menyusun analisis hotspot sederhana antar kab/kota.
-- Membuat layout peta tren & hotspot yang siap diekspor (PDF/PNG).
-
-➡️ **Baca:** [Praktikum QGIS](./03_praktikum.html)
+</div>
 
 ---
 
@@ -290,42 +273,16 @@ Ini adalah bagian inti modul (hands-on):
 
 Agar pelatihan dan belajar mandiri lebih efektif, urutan berikut disarankan:
 
-1. **Mulai di halaman ini (Beranda Modul)**  
-   Pahami dulu gambaran besar modul dan alur analisis.
+1. **Mulai dari halaman ini (Beranda Modul)**  
+   Pahami gambaran besar modul dan alur analisis yang akan dilakukan.
 
 2. **Baca Pendahuluan**  
    ➜ [Pendahuluan](./01_pendahuluan.html)  
-   Untuk mengerti *mengapa* peta tren & hotspot ini penting.
+   Untuk memahami *mengapa* peta tren & hotspot penting dalam konteks serangan OPT.
 
 3. **Siapkan Perangkat & Data**  
-   ➜ [Perangkat dan Data](./02_data.html)  
-   - Instal QGIS (jika belum).
+   ➜ [Perangkat & Data](./02_data.html)  
+   - Instal QGIS (jika belum terpasang).  
    - Siapkan folder kerja, peta kab/kota, dan tabel OPT.
 
-4. **Ikuti Praktikum secara berurutan**  
-   ➜ [Praktikum QGIS](./03_praktikum.html)  
-   Dari Praktikum 1 sampai 7 (setup → join → indikator → tren → hotspot → layout).
-
-5. **Lanjutkan dengan Tugas Mandiri**  
-   Di akhir praktikum terdapat tugas asinkron, misalnya:
-   - Mengganti indikator hotspot dari luas serangan ke kerugian per hektar.
-   - Membuat peta perbandingan dan ringkasan interpretasi.
-
----
-
-## 🔗 6. Navigasi Cepat
-
-<div align="center">
-
-| Halaman | Link |
-|--------|------|
-| 📘 Pendahuluan | [Buka Pendahuluan](./01_pendahuluan.html) |
-| 🖥️ Perangkat & Data | [Buka Perangkat dan Data](./02_data.html) |
-| 🧪 Praktikum QGIS | [Buka Praktikum Langkah demi Langkah](./03_praktikum.html) |
-
-</div>
-
----
-
-Selamat belajar dan bereksperimen dengan data serangan OPT di QGIS.  
-Semoga modul ini membantu memperkuat analisis dan pengambilan keputusan di lapangan. 🌱🗺️📊
+4. **Ikuti Praktikum secara berurutan**
