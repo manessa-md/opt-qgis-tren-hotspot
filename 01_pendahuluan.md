@@ -52,10 +52,15 @@ Peserta diharapkan:
 - Tidak wajib mahir QGIS, namun idealnya pernah melihat/membuka antarmuka QGIS sebelumnya.
 
 
-  ---
+ ---
 
-**Navigasi**
+## 🔗 6. Navigasi Cepat
 
-- ⬅️ [Beranda Modul](./index.html)
-- ➡️ [Perangkat dan Data](./02_data.html)
+| Halaman             | Link                                                      |
+|---------------------|-----------------------------------------------------------|
+| 🏠 Beranda Modul      | [Beranda Modul](./index.html)             |
+| 🖥️ Perangkat & Data | [Buka Perangkat dan Data](./02_data.html)                |
+| 🧪 Praktikum QGIS   | [Buka Praktikum Langkah demi Langkah](./03_praktikum.html) |
+
+---
 
