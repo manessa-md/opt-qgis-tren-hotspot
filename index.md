@@ -285,4 +285,23 @@ Agar pelatihan dan belajar mandiri lebih efektif, urutan berikut disarankan:
    - Instal QGIS (jika belum terpasang).  
    - Siapkan folder kerja, peta kab/kota, dan tabel OPT.
 
-4. **Ikuti Praktikum secara berurutan**
+4. **Ikuti Praktikum secara berurutan**  
+   ➜ [Praktikum QGIS](./03_praktikum.html)  
+   Ikuti dari Praktikum 1 sampai 7: setup proyek → join data → indikator → tren → hotspot → layout.
+
+5. **Lanjutkan dengan Tugas Mandiri**  
+   Di akhir praktikum tersedia saran tugas asinkron, misalnya:
+   - Mengganti indikator hotspot dari luas serangan ke kerugian per hektar.
+   - Membuat peta perbandingan dan ringkasan interpretasi.
+
+---
+
+## 🔗 6. Navigasi Cepat
+
+| Halaman | Link |
+|--------|------|
+| 📘 Pendahuluan | [Buka Pendahuluan](./01_pendahuluan.html) |
+| 🖥️ Perangkat & Data | [Buka Perangkat dan Data](./02_data.html) |
+| 🧪 Praktikum QGIS | [Buka Praktikum Langkah demi Langkah](./03_praktikum.html) |
+
+</main>
