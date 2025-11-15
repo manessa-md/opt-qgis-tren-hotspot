@@ -1,8 +1,3 @@
-Siap, jadi masalahnya tadi Ibu copy **blok yang sudah dibungkus** `markdown ...` sehingga ikut terbaca sebagai “code block besar”.
-Di bawah ini saya kirim **isi lengkap `03_praktikum.md` TANPA pembungkus** — Ibu bisa langsung copy–paste ke file `03_praktikum.md`.
-
----
-
 # 6. Praktikum Langkah demi Langkah
 
 File ini berisi rangkaian praktikum utama dalam pelatihan:
