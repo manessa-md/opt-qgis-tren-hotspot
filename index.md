@@ -1,124 +1,182 @@
----
+<div align="center">
 
-# Modul Pelatihan
-
-## Pembuatan dan Analisis Peta Tren & Hotspot Serangan OPT dengan QGIS
-
+# 📊🗺️ Modul Pelatihan  
+## Pembuatan & Analisis Peta **Tren & Hotspot Serangan OPT** dengan QGIS  
 *(Data Triwulanan 2018–2025 per Kab/Kota)*
 
-Disusun oleh: **Masita Dwi Mandini Manessa**
-Untuk: **Direktorat Jenderal Perkebunan, Kementerian Pertanian**
+---
+
+**Disusun oleh:**  
+🧑‍🏫 **Masita Dwi Mandini Manessa**
+
+**Untuk:**  
+🌱 **Direktorat Jenderal Perkebunan**  
+**Kementerian Pertanian**
+
+</div>
 
 ---
 
-## 1. Deskripsi Singkat
-
-Serangan Organisme Pengganggu Tanaman (OPT) berkontribusi langsung terhadap penurunan produksi dan kerugian ekonomi petani. Data statistik serangan OPT sebenarnya sudah rutin dikumpulkan per kabupaten/kota, per tahun, dan per periode tanam (misalnya triwulan), tetapi seringkali masih disajikan dalam bentuk tabel sehingga sulit untuk:
-
-* Melihat pola spasial (kabupaten/kota mana yang paling terdampak).
-* Melacak tren temporal (apakah serangan cenderung naik, turun, atau stabil).
-* Mengaitkan serangan dengan upaya pengendalian dan kerugian produksi.
-
-Modul ini memperkenalkan pemanfaatan **QGIS** untuk mengubah data statistik serangan OPT triwulanan **2018–2025** menjadi:
-
-* **Peta tren serangan** (multi-tahun per kab/kota).
-* **Peta hotspot sederhana** untuk mengidentifikasi wilayah prioritas pengendalian.
-
-Modul dirancang untuk pelatihan 1 hari dengan pendekatan **praktikum langkah demi langkah**, sehingga peserta dengan kemampuan QGIS dasar sekalipun tetap dapat mengikuti.
+> 💡 **Singkatnya modul ini apa?**  
+> Kita akan mengubah **tabel statistik serangan OPT** (2018–2025, per kab/kota, per triwulan) menjadi  
+> **peta tren** dan **peta hotspot** di QGIS untuk membantu penentuan wilayah prioritas pengendalian.
 
 ---
 
-## 2. Tujuan Pembelajaran
+## 🎯 1. Latar Belakang
+
+Serangan Organisme Pengganggu Tanaman (OPT) berkontribusi langsung terhadap:
+
+- Penurunan produksi dan produktivitas.
+- Peningkatan biaya pengendalian.
+- Kerugian ekonomi petani dan pelaku usaha.
+
+Data statistik serangan OPT sebenarnya sudah rutin dikumpulkan per kabupaten/kota, tahun, dan periode tanam (misalnya per triwulan). Namun, ketika hanya disajikan dalam bentuk tabel, seringkali:
+
+- Sulit terlihat **pola spasial** → kabupaten/kota mana yang paling terdampak?
+- Sulit terbaca **pola temporal** → tren serangan naik, turun, atau stabil?
+- Sulit dikaitkan dengan **pengendalian** dan **kerugian ekonomi**.
+
+Melalui modul ini, data tabel tersebut diolah menjadi:
+
+- **Peta tren serangan OPT** (multi-tahun per kab/kota).  
+- **Peta hotspot sederhana** untuk mengidentifikasi wilayah prioritas.  
+
+Pendekatan yang digunakan sepenuhnya berbasis **QGIS** dan dirancang agar dapat diikuti dalam **pelatihan 1 hari**.
+
+---
+
+## 🎓 2. Tujuan Pembelajaran
 
 Setelah mengikuti pelatihan dan mempelajari modul ini, peserta diharapkan mampu:
 
-* Menjelaskan alur kerja pembuatan peta tren & hotspot serangan OPT menggunakan QGIS.
-* Memuat peta administrasi kab/kota dan menggabungkannya dengan data statistik serangan OPT triwulan 2018–2025.
-* Menghitung indikator utama, seperti:
-
-  * Intensitas serangan relatif terhadap luas komoditas.
-  * Proporsi serangan ringan vs berat.
-  * Cakupan pengendalian terhadap luas serangan.
-  * Kerugian ekonomi per hektar.
-* Membuat peta tren serangan OPT (triwulanan, tahunan, dan ringkasan multi-tahun).
-* Melakukan analisis hotspot sederhana antar kabupaten/kota.
-* Menyusun layout peta tren & hotspot yang siap digunakan dalam laporan.
+- Menjelaskan **alur kerja** pembuatan peta tren & hotspot serangan OPT di QGIS.
+- Memuat peta administrasi kab/kota dan melakukan **join** dengan tabel statistik serangan OPT triwulan 2018–2025.
+- Menghitung indikator utama, antara lain:
+  - Intensitas serangan relatif terhadap luas komoditas.
+  - Proporsi serangan ringan vs berat.
+  - Cakupan pengendalian terhadap luas serangan.
+  - Kerugian ekonomi per hektar.
+- Membuat peta tren serangan OPT:
+  - per triwulan,
+  - per tahun,
+  - dan ringkasan multi-tahun.
+- Menyusun **peta hotspot sederhana** antar kab/kota.
+- Menyusun layout peta tren & hotspot yang siap digunakan dalam **laporan** atau **bahan presentasi**.
 
 ---
 
-## 3. Sasaran Peserta
+## 👥 3. Sasaran Peserta & Prasyarat
+
+### 3.1. Siapa yang cocok ikut?
 
 Modul ini ditujukan terutama untuk:
 
-* Penyuluh pertanian dan staf dinas pertanian/perkebunan.
-* Analis data/statistik serangan OPT.
-* Peneliti/mahasiswa di bidang perlindungan tanaman, agronomi, atau geografi.
-* Operator GIS di instansi pusat/daerah yang mengelola data statistik serangan OPT.
+- Penyuluh pertanian dan staf dinas pertanian/perkebunan.
+- Analis data/statistik serangan OPT.
+- Peneliti/mahasiswa di bidang perlindungan tanaman, agronomi, atau geografi.
+- Operator GIS di instansi pusat/daerah.
 
-**Prasyarat minimal:**
+### 3.2. Prasyarat minimal
 
-* Mampu mengoperasikan komputer dasar (pengelolaan folder dan file).
-* Memahami konsep wilayah administrasi kabupaten/kota.
-* Tidak diwajibkan mahir QGIS, tetapi idealnya sudah pernah melihat/membuka QGIS.
+Tidak perlu mahir GIS, cukup:
 
----
-
-## 4. Struktur Modul
-
-Modul ini dibagi ke dalam beberapa halaman utama:
-
-1. **Pendahuluan & Konsep Dasar**
-   Penjelasan latar belakang, alur pikir, dan gambaran umum analisis tren & hotspot serangan OPT.
-   → [Baca: Pendahuluan](./01_pendahuluan.html)
-
-2. **Perangkat & Data yang Dibutuhkan**
-   Berisi petunjuk instalasi QGIS, struktur data spasial (peta kab/kota), dan data statistik serangan OPT triwulanan 2018–2025, termasuk rekomendasi penyiapan dataset *long* dan ringkasan.
-   → [Baca: Perangkat dan Data](./02_data.html)
-
-3. **Praktikum QGIS Langkah demi Langkah**
-   Bagian utama modul yang berisi tutorial praktis:
-
-   * Menyiapkan proyek QGIS dan memuat peta administrasi.
-   * Mengimpor dan merapikan data OPT.
-   * Join tabel OPT ke kab/kota.
-   * Menghitung indikator turunan (Field Calculator).
-   * Membuat peta tren (triwulanan, tahunan, multi-tahun).
-   * Menyusun analisis hotspot sederhana.
-   * Membuat layout peta tren & hotspot untuk laporan.
-     → [Baca: Praktikum QGIS](./03_praktikum.html)
+- Mampu mengoperasikan komputer (folder, file, copy–paste).
+- Memahami konsep dasar wilayah administrasi kabupaten/kota.
+- Pernah melihat atau membuka QGIS akan membantu, tapi **tidak wajib**.
 
 ---
 
-## 5. Cara Menggunakan Modul Ini
+## 🧩 4. Struktur Modul
 
-Disarankan alur belajar sebagai berikut:
-
-1. **Mulai dari Pendahuluan**
-   Baca bagian [Pendahuluan](./01_pendahuluan.html) untuk memahami konteks dan tujuan analisis.
-
-2. **Siapkan Perangkat & Data**
-   Ikuti petunjuk di [Perangkat dan Data](./02_data.html) untuk:
-
-   * Menginstal QGIS (jika belum terpasang).
-   * Menyiapkan peta kab/kota dan tabel statistik serangan OPT.
-
-3. **Ikuti Praktikum Secara Berurutan**
-   Buka [Praktikum QGIS](./03_praktikum.html) dan ikuti langkah demi langkah:
-
-   * Praktikum 1 → 7, dari setup proyek hingga layout peta.
-
-4. **Lanjutkan dengan Tugas Mandiri**
-   Di akhir praktikum terdapat saran tugas asinkron, misalnya:
-
-   * Mengganti indikator hotspot dari luas serangan ke kerugian ekonomi per hektar.
-   * Menulis ringkasan interpretasi peta untuk bahan laporan.
+Modul dibagi menjadi beberapa bagian utama:
 
 ---
 
-## 6. Navigasi Cepat
+### 📘 4.1. Pendahuluan & Konsep Dasar
 
-* 👉 [Pendahuluan](./01_pendahuluan.html)
-* 👉 [Perangkat dan Data](./02_data.html)
-* 👉 [Praktikum QGIS Langkah demi Langkah](./03_praktikum.html)
+- Latar belakang pemanfaatan SIG untuk analisis serangan OPT.
+- Gambaran umum konsep **tren** dan **hotspot** dalam konteks kabupaten/kota.
+- Alur kerja dari **data tabel → peta → informasi kebijakan**.
+
+➡️ **Baca:** [Pendahuluan](./01_pendahuluan.html)
 
 ---
+
+### 🖥️ 4.2. Perangkat & Data yang Dibutuhkan
+
+- Petunjuk singkat instalasi QGIS.
+- Spesifikasi data spasial:
+  - Peta administrasi kab/kota (Shapefile/GeoPackage).
+- Spesifikasi data statistik serangan OPT:
+  - Per kab/kota, per tahun, per triwulan (2018–2025).
+- Rekomendasi penyiapan:
+  - Dataset *long* (1 baris = kab/kota–tahun–triwulan).
+  - Dataset ringkasan untuk analisis tren & hotspot.
+
+➡️ **Baca:** [Perangkat dan Data](./02_data.html)
+
+---
+
+### 🧪 4.3. Praktikum QGIS Langkah demi Langkah
+
+Ini adalah bagian inti modul (hands-on):
+
+- Menyiapkan proyek QGIS & memuat peta kab/kota.
+- Mengimpor & merapikan tabel serangan OPT.
+- Join tabel OPT ke poligon kab/kota.
+- Menghitung indikator turunan (Field Calculator).
+- Membuat peta tren:
+  - Triwulanan
+  - Tahunan
+  - Multi-tahun (rata-rata dan tren)
+- Menyusun analisis hotspot sederhana antar kab/kota.
+- Membuat layout peta tren & hotspot yang siap diekspor (PDF/PNG).
+
+➡️ **Baca:** [Praktikum QGIS](./03_praktikum.html)
+
+---
+
+## 🧭 5. Rekomendasi Alur Belajar
+
+Agar pelatihan dan belajar mandiri lebih efektif, urutan berikut disarankan:
+
+1. **Mulai di halaman ini (Beranda Modul)**  
+   Pahami dulu gambaran besar modul dan alur analisis.
+
+2. **Baca Pendahuluan**  
+   ➜ [Pendahuluan](./01_pendahuluan.html)  
+   Untuk mengerti *mengapa* peta tren & hotspot ini penting.
+
+3. **Siapkan Perangkat & Data**  
+   ➜ [Perangkat dan Data](./02_data.html)  
+   - Instal QGIS (jika belum).
+   - Siapkan folder kerja, peta kab/kota, dan tabel OPT.
+
+4. **Ikuti Praktikum secara berurutan**  
+   ➜ [Praktikum QGIS](./03_praktikum.html)  
+   Dari Praktikum 1 sampai 7 (setup → join → indikator → tren → hotspot → layout).
+
+5. **Lanjutkan dengan Tugas Mandiri**  
+   Di akhir praktikum terdapat tugas asinkron, misalnya:
+   - Mengganti indikator hotspot dari luas serangan ke kerugian per hektar.
+   - Membuat peta perbandingan dan ringkasan interpretasi.
+
+---
+
+## 🔗 6. Navigasi Cepat
+
+<div align="center">
+
+| Halaman | Link |
+|--------|------|
+| 📘 Pendahuluan | [Buka Pendahuluan](./01_pendahuluan.html) |
+| 🖥️ Perangkat & Data | [Buka Perangkat dan Data](./02_data.html) |
+| 🧪 Praktikum QGIS | [Buka Praktikum Langkah demi Langkah](./03_praktikum.html) |
+
+</div>
+
+---
+
+Selamat belajar dan bereksperimen dengan data serangan OPT di QGIS.  
+Semoga modul ini membantu memperkuat analisis dan pengambilan keputusan di lapangan. 🌱🗺️📊
