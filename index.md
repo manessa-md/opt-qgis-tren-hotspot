@@ -147,19 +147,21 @@
 
 <main>
 
-<div class="hero">
+<div align="center" markdown="1">
 
-# 📊🗺️ Modul Pelatihan  
+# 📚 Modul Pelatihan  
 ## Pembuatan & Analisis Peta **Tren & Hotspot Serangan OPT** dengan QGIS  
+*(Data Triwulanan 2018–2025 per Kab/Kota)*  
 
-<div class="hero-sub">
-(Data Triwulanan 2018–2025 per Kab/Kota)
+**Disusun oleh:**  
+👩‍🏫 **Masita Dwi Mandini Manessa**  
+
+**Untuk:**  
+🌱 **Direktorat Jenderal Perkebunan**  
+**Kementerian Pertanian**
+
 </div>
 
-<div class="hero-sub">
-Disusun oleh <strong>Masita Dwi Mandini Manessa</strong><br>
-untuk <strong>Direktorat Jenderal Perkebunan, Kementerian Pertanian</strong>
-</div>
 
 <div class="hero-tags">
   <span class="hero-tag">QGIS</span>
