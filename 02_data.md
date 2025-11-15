@@ -104,3 +104,12 @@ Secara garis besar, alur pelatihan:
 5. Membuat peta tren (triwulanan, tahunan, dan multi-tahun).
 6. Melakukan analisis hotspot antar kab/kota.
 7. Menyusun layout peta tren & hotspot.
+
+   ---
+
+**Navigasi**
+
+- ⬅️ [Pendahuluan](./01_pendahuluan.html)
+- ⬅️ [Beranda Modul](./index.html)
+- ➡️ [Praktikum QGIS Langkah demi Langkah](./03_praktikum.html)
+
