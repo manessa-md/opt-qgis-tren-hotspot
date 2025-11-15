@@ -1,3 +1,152 @@
+<style>
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f7fb;
+    margin: 0;
+  }
+
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 1.2rem 3rem 1.2rem;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 650;
+    color: #111827;
+  }
+
+  p, li {
+    color: #374151;
+    line-height: 1.6;
+  }
+
+  /* Hero di atas */
+  .hero {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-top: 0;
+  }
+
+  .hero-tags {
+    margin-top: 0.75rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .hero-tag {
+    background: #e5f0ff;
+    color: #1f2937;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+  }
+
+  /* Box highlight */
+  .callout {
+    border-left: 4px solid #2563eb;
+    background: #eff5ff;
+    padding: 0.85rem 1rem;
+    border-radius: 0 10px 10px 0;
+    margin: 1.2rem 0;
+    font-size: 0.95rem;
+  }
+
+  .callout strong {
+    color: #1d4ed8;
+  }
+
+  /* Navigasi cepat */
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  .nav-card {
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+  }
+
+  .nav-card h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+  }
+
+  .nav-card p {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.9rem;
+  }
+
+  .nav-card a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #2563eb;
+  }
+
+  .nav-card a:hover {
+    text-decoration: underline;
+  }
+
+  /* Tabel navigasi di bawah */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table th, table td {
+    border: 1px solid #e5e7eb;
+    padding: 0.55rem 0.6rem;
+    text-align: left;
+  }
+
+  table th {
+    background: #f3f4f6;
+  }
+
+  /* Tombol teks */
+  .btn-link {
+    display: inline-block;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #ffffff !important;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 0.3rem;
+  }
+
+  .btn-link:hover {
+    background: #1d4ed8;
+    text-decoration: none;
+  }
+
+  /* Biar isi index dibungkus main */
+</style>
+
+
 <div align="center">
 
 # 📊🗺️ Modul Pelatihan  
