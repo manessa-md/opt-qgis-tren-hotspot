@@ -766,3 +766,11 @@ Sebagai latihan mandiri, peserta dapat mencoba:
    * Apa implikasi praktisnya bagi perencanaan pengendalian OPT di lapangan?
 
 Dengan tugas ini, peserta diharapkan dapat menghubungkan analisis spasial dengan prioritas kebijakan dan pengambilan keputusan di sektor perkebunan.
+
+
+---
+
+**Navigasi**
+
+- ⬅️ [Perangkat dan Data](./02_data.html)
+- ⬅️ [Beranda Modul](./index.html)
