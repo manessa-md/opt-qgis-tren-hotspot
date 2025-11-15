@@ -850,14 +850,20 @@ Sebagai latihan mandiri, peserta dapat mencoba:
 Dengan tugas ini, peserta diharapkan dapat menghubungkan analisis spasial dengan prioritas kebijakan dan pengambilan keputusan di sektor perkebunan.
 
 
+   ---
+
+
+
+## 🔗 Navigasi Cepat
+
+| Halaman             | Link                                                      |
+|---------------------|-----------------------------------------------------------|
+| 🏠 Beranda Modul      | [Beranda Modul](./index.html)             |
+| 📘 Pendahuluan | [Pendahuluan](./01_pendahuluan.html)                |
+| 🖥️Perangkat & Data   |  [Perangkat dan Data](./02_data.html) |
+
 ---
 
-**Navigasi**
-
-- ⬅️ [Perangkat dan Data](./02_data.html)
-- 🏠 [Beranda Modul](./index.html)
-
-  </div> <!-- .konten-praktikum -->
 </div> <!-- .layout-praktikum -->
 </main>
 
