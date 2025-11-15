@@ -122,10 +122,10 @@
 *(Data Triwulanan 2018–2025 per Kab/Kota)*  
 
 **Disusun oleh:**  
-👩‍🏫 **Masita Dwi Mandini Manessa**  
+**Masita Dwi Mandini Manessa**  
 
 **Untuk:**  
-🌱 **Direktorat Jenderal Perkebunan**  
+**Direktorat Jenderal Perkebunan**  
 **Kementerian Pertanian**
 
 <div class="hero-tags">
