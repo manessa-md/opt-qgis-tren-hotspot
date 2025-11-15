@@ -1,3 +1,74 @@
+<style>
+  .layout-praktikum {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .sidebar-praktikum {
+    flex: 0 0 220px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-praktikum h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .sidebar-praktikum ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sidebar-praktikum li {
+    margin-bottom: 0.3rem;
+  }
+
+  .sidebar-praktikum a {
+    text-decoration: none;
+    color: #2563eb;
+  }
+
+  .sidebar-praktikum a:hover {
+    text-decoration: underline;
+  }
+
+  .konten-praktikum {
+    flex: 1;
+  }
+</style>
+
+<main markdown="1">
+
+<div class="layout-praktikum">
+
+<div class="sidebar-praktikum" markdown="1">
+
+### 🔧 Navigasi Praktikum
+
+- [Praktikum 1 – Proyek & Peta Kab/Kota](#praktikum-1)
+- [Praktikum 2 – Data Serangan OPT](#praktikum-2)
+- [Praktikum 3 – Join Kab/Kota & OPT](#praktikum-3)
+- [Praktikum 4 – Indikator Turunan](#praktikum-4)
+- [Praktikum 5 – Peta Tren Serangan](#praktikum-5)
+- [Praktikum 6 – Hotspot Sederhana](#praktikum-6)
+- [Praktikum 7 – Layout Peta](#praktikum-7)
+
+</div>
+
+<div class="konten-praktikum" markdown="1">
+
+
 # 6. Praktikum Langkah demi Langkah
 
 File ini berisi rangkaian praktikum utama dalam pelatihan:
