@@ -83,7 +83,10 @@ File ini berisi rangkaian praktikum utama dalam pelatihan:
 
 ---
 
-## Praktikum 1 – Menyiapkan Proyek QGIS & Memuat Peta Administrasi Kab/Kota
+<a id="praktikum-1"></a>
+### Praktikum 1  
+Menyiapkan Proyek QGIS & Memuat Peta Administrasi Kab/Kota
+
 
 **Tujuan:**
 Peserta mampu membuka QGIS, membuat proyek baru, dan memuat peta kabupaten/kota.
@@ -132,7 +135,10 @@ Peserta mampu membuka QGIS, membuat proyek baru, dan memuat peta kabupaten/kota.
 
 ---
 
-## Praktikum 2 – Memuat & Menyiapkan Data Serangan OPT
+<a id="praktikum-2"></a>
+### Praktikum 2  
+Memuat & Menyiapkan Data Serangan OPT
+
 
 **Tujuan:**
 Peserta dapat memuat data serangan OPT (tabular) dan menyiapkan struktur kolom agar mudah digunakan di QGIS.
@@ -192,6 +198,7 @@ Alternatif (di QGIS): gunakan **Processing → Refactor Fields** untuk mengganti
 
 ---
 
+<a id="praktikum-3"></a>
 ## Praktikum 3 – Join Data OPT ke Peta Kab/Kota & Ringkasan Tren
 
 **Tujuan:**
@@ -452,6 +459,7 @@ Layer ini bisa di-join ke kabkota dan dipetakan sebagai peta tren khusus Vanili.
 
 ---
 
+<a id="praktikum-4"></a>
 ## Praktikum 4 – Menghitung Indikator Turunan Utama (Field Calculator)
 
 **Tujuan:**
@@ -542,6 +550,7 @@ untuk mengukur kerugian per hektar wilayah yang diserang.
 
 ---
 
+<a id="praktikum-5"></a>
 ## Praktikum 5 – Pemetaan Tren Serangan OPT (Triwulanan, Tahunan, Multi-Tahun)
 
 **Tujuan:**
@@ -610,6 +619,7 @@ Gunakan field dari `ringkasan_tren_OPT`:
 
 ---
 
+<a id="praktikum-6"></a> 
 ## Praktikum 6 – Hotspot Sederhana Serangan OPT antar Kab/Kota
 
 **Tujuan:**
@@ -733,6 +743,7 @@ Pertanyaan yang dapat digunakan untuk diskusi kelas:
 
 ---
 
+<a id="praktikum-7"></a> 
 ## Praktikum 7 – Pembuatan Layout Peta Tren & Hotspot
 
 **Tujuan:**
@@ -844,4 +855,9 @@ Dengan tugas ini, peserta diharapkan dapat menghubungkan analisis spasial dengan
 **Navigasi**
 
 - ⬅️ [Perangkat dan Data](./02_data.html)
-- ⬅️ [Beranda Modul](./index.html)
+- 🏠 [Beranda Modul](./index.html)
+
+  </div> <!-- .konten-praktikum -->
+</div> <!-- .layout-praktikum -->
+</main>
+
