@@ -54,7 +54,7 @@ Peserta diharapkan:
 
  ---
 
-## 🔗 6. Navigasi Cepat
+## 🔗 Navigasi Cepat
 
 | Halaman             | Link                                                      |
 |---------------------|-----------------------------------------------------------|
