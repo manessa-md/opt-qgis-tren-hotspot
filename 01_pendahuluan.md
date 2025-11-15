@@ -50,3 +50,12 @@ Peserta diharapkan:
 - Mampu mengoperasikan komputer dasar (mengelola folder, penamaan file, dsb.).
 - Memahami konsep wilayah administrasi kabupaten/kota.
 - Tidak wajib mahir QGIS, namun idealnya pernah melihat/membuka antarmuka QGIS sebelumnya.
+
+
+  ---
+
+**Navigasi**
+
+- ⬅️ [Beranda Modul](./index.html)
+- ➡️ [Perangkat dan Data](./02_data.html)
+
