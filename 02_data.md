@@ -109,7 +109,7 @@ Secara garis besar, alur pelatihan:
 
 **Navigasi**
 
-- ⬅️ [Pendahuluan](./01_pendahuluan.html)
-- ⬅️ [Beranda Modul](./index.html)
-- ➡️ [Praktikum QGIS Langkah demi Langkah](./03_praktikum.html)
+  - ⬅️ [Pendahuluan](./01_pendahuluan.html)
+  - ➡️ [Praktikum QGIS Langkah demi Langkah](./03_praktikum.html)
+  - 🏠 [Beranda Modul](./index.html)
 
