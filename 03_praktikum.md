@@ -582,7 +582,7 @@ Pertanyaan yang dapat digunakan untuk diskusi kelas:
 
 ---
 
-<a id="praktikum-7"></a> 
+<a id="praktikum-5"></a> 
 ## Praktikum 5 – Pembuatan Layout Peta Tren & Hotspot
 
 **Tujuan:**
