@@ -96,12 +96,14 @@ Peserta mampu membuka QGIS, membuat proyek baru, dan memuat peta kabupaten/kota.
 2. **Buat proyek baru**
 
    * Menu **Project → New**.
+     
 
 3. **Atur CRS proyek (bila diperlukan)**
 
    * Klik ikon **CRS** di kanan bawah jendela QGIS.
    * Pilih `EPSG:4326 – WGS 84` (atau CRS lain yang disepakati).
    * Klik **OK**.
+     
 
 4. **Tambahkan layer kab/kota**
 
@@ -666,32 +668,6 @@ Melalui rangkaian praktikum ini, peserta telah:
 * Menyusun layout peta tren & hotspot yang siap digunakan dalam laporan.
 
 ---
-
-## 6.2. Tugas Mandiri (Asinkron)
-
-Sebagai latihan mandiri, peserta dapat mencoba:
-
-1. **Mengganti variabel hotspot**
-
-   * Ulangi analisis hotspot dengan mengganti variabel utama dari `mean_L_SERANG` menjadi `RUGI_PERHA`.
-
-2. **Membuat peta perbandingan**
-
-   * Peta hotspot berdasarkan **luas serangan** (`mean_L_SERANG`).
-   * Peta hotspot berdasarkan **kerugian ekonomi** (`RUGI_PERHA`).
-
-3. **Menulis ringkasan singkat (1–2 halaman)**
-
-   * Wilayah mana yang menjadi prioritas jika fokus utamanya **luas serangan**?
-   * Apakah daftar prioritas tersebut sama ketika fokusnya adalah **kerugian ekonomi**?
-   * Apa implikasi praktisnya bagi perencanaan pengendalian OPT di lapangan?
-
-Dengan tugas ini, peserta diharapkan dapat menghubungkan analisis spasial dengan prioritas kebijakan dan pengambilan keputusan di sektor perkebunan.
-
-
-   ---
-
-
 
 ## 🔗 Navigasi Cepat
 
