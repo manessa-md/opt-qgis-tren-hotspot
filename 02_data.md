@@ -100,10 +100,9 @@ Secara garis besar, alur pelatihan:
 1. Menyiapkan proyek QGIS dan memuat data kab/kota.
 2. Memuat dan memeriksa data serangan OPT.
 3. Melakukan join data kab/kota dengan data OPT.
-4. Menghitung indikator turunan menggunakan Field Calculator.
-5. Membuat peta tren (triwulanan, tahunan, dan multi-tahun).
-6. Melakukan analisis hotspot antar kab/kota.
-7. Menyusun layout peta tren & hotspot.
+4. Membuat peta tren (triwulanan, tahunan, dan multi-tahun).
+5. Melakukan analisis hotspot antar kab/kota.
+6. Menyusun layout peta tren & hotspot.
 
    ---
 
