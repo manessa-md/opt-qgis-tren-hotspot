@@ -59,10 +59,9 @@
 - [Praktikum 1 – Proyek & Peta Kab/Kota](#praktikum-1)
 - [Praktikum 2 – Data Serangan OPT](#praktikum-2)
 - [Praktikum 3 – Join Kab/Kota & OPT](#praktikum-3)
-- [Praktikum 4 – Indikator Turunan](#praktikum-4)
-- [Praktikum 5 – Peta Tren Serangan](#praktikum-5)
-- [Praktikum 6 – Hotspot Sederhana](#praktikum-6)
-- [Praktikum 7 – Layout Peta](#praktikum-7)
+- [Praktikum 4 – Peta Tren Serangan](#praktikum-5)
+- [Praktikum 5 – Hotspot Sederhana](#praktikum-6)
+- [Praktikum 6 – Layout Peta](#praktikum-7)
 
 </div>
 
@@ -459,168 +458,9 @@ Layer ini bisa di-join ke kabkota dan dipetakan sebagai peta tren khusus Vanili.
 
 ---
 
-<a id="praktikum-4"></a>
-## Praktikum 4 – Menghitung Indikator Turunan Utama (Field Calculator)
 
-**Tujuan:**
-Peserta mampu membuat beberapa indikator turunan penting untuk analisis tren & hotspot.
-
-> Pastikan layer `kabkota` sudah memiliki kolom-kolom OPT hasil join (L_SERANG, L_RINGAN, L_BERAT, L_PENGEND, RUGI_RP, L_KOMOD, dsb.).
-
-### 4.1. Intensitas Serangan Relatif terhadap Luas Komoditas
-
-Field baru: `SERANG_REL`
-Tipe: **Decimal (real)**
-
-Expression:
-
-```sql
-CASE
-WHEN "L_KOMOD" IS NULL OR "L_KOMOD" = 0 THEN NULL
-ELSE "L_SERANG" / "L_KOMOD"
-END
-```
-
-Makna:
-Proporsi luas serangan terhadap luas komoditas (0–1).
-Bisa dikalikan 100 untuk persen (`SERANG_REL * 100`).
-
----
-
-### 4.2. Proporsi Serangan Ringan & Berat
-
-Field baru: `PROP_RINGAN` (Decimal):
-
-```sql
-CASE
-WHEN "L_SERANG" IS NULL OR "L_SERANG" = 0 THEN NULL
-ELSE "L_RINGAN" / "L_SERANG"
-END
-```
-
-Field baru: `PROP_BERAT` (Decimal):
-
-```sql
-CASE
-WHEN "L_SERANG" IS NULL OR "L_SERANG" = 0 THEN NULL
-ELSE "L_BERAT" / "L_SERANG"
-END
-```
-
-Interpretasi:
-
-* `PROP_RINGAN` tinggi → mayoritas serangan kategori ringan.
-* `PROP_BERAT` tinggi → dominasi serangan berat.
-
----
-
-### 4.3. Cakupan Pengendalian terhadap Serangan
-
-Field baru: `PENGEND_REL` (Decimal):
-
-```sql
-CASE
-WHEN "L_SERANG" IS NULL OR "L_SERANG" = 0 THEN NULL
-ELSE "L_PENGEND" / "L_SERANG"
-END
-```
-
-Makna:
-Seberapa besar area serangan yang tercakup pengendalian (0–1).
-
----
-
-### 4.4. Kerugian Ekonomi per Ha Komoditas
-
-Field baru: `RUGI_PERHA` (Decimal):
-
-```sql
-CASE
-WHEN "L_KOMOD" IS NULL OR "L_KOMOD" = 0 THEN NULL
-ELSE "RUGI_RP" / "L_KOMOD"
-END
-```
-
-**Latihan tambahan:**
-Buat indikator:
-
-* `RUGI_PERHA_SERANG` = `RUGI_RP / L_SERANG`
-
-untuk mengukur kerugian per hektar wilayah yang diserang.
-
----
-
-<a id="praktikum-5"></a>
-## Praktikum 5 – Pemetaan Tren Serangan OPT (Triwulanan, Tahunan, Multi-Tahun)
-
-**Tujuan:**
-Peserta mampu membuat peta tematik (choropleth) untuk melihat pola spasio-temporal serangan OPT.
-
----
-
-### 5.1. Peta Triwulanan
-
-1. Pastikan join subset waktu (misalnya `opt_2022_Q1`) sudah dilakukan ke layer kabkota.
-2. Klik dua kali layer `kabkota` → tab **Symbology**.
-3. Pilih:
-
-   * **Graduated**
-   * Column: `L_SERANG` (atau `SERANG_REL`)
-   * Mode: **Natural Breaks (Jenks)** atau **Quantile**
-   * Classes: **5**
-   * Color ramp: gradasi hijau muda → merah tua (rendah → tinggi)
-4. Klik **Classify** → **Apply**.
-
-**Latihan:**
-
-* Buat dua peta:
-
-  * Peta `L_SERANG` untuk 2018 Q1
-  * Peta `L_SERANG` untuk 2024 Q1
-* Bandingkan kab/kota mana yang menunjukkan kenaikan/penurunan serangan.
-
----
-
-### 5.2. Peta Tahunan
-
-Jika tersedia kolom agregat tahunan, misalnya:
-
-* `L_SERANG_2018`
-* `L_SERANG_2020`
-* `L_SERANG_2025`
-
-Gunakan simbolisasi **Graduated** yang sama:
-
-* Column: `L_SERANG_2018` → buat peta pertama
-* Column: `L_SERANG_2025` → buat peta kedua
-
-Diskusikan perubahan pola spasial antar tahun.
-
----
-
-### 5.3. Peta Multi-Tahun (Rata-rata & Tren)
-
-Gunakan field dari `ringkasan_tren_OPT`:
-
-* `mean_L_SERANG` → peta tingkat serangan rata-rata.
-* `trend_serangan` → peta arah tren.
-
-**Contoh simbolisasi `mean_L_SERANG`:**
-
-* **Graduated**, 5 kelas, warna hijau → merah.
-
-**Contoh simbolisasi `trend_serangan`:**
-
-* **Graduated** dengan **color ramp divergen**:
-
-  * Biru → tren menurun (nilai negatif)
-  * Putih → relatif stabil (dekat nol)
-  * Merah → tren meningkat (nilai positif)
-
----
-
-<a id="praktikum-6"></a> 
-## Praktikum 6 – Hotspot Sederhana Serangan OPT antar Kab/Kota
+<a id="praktikum-4"></a> 
+## Praktikum 4 – Hotspot Sederhana Serangan OPT antar Kab/Kota
 
 **Tujuan:**
 Peserta mampu:
@@ -634,7 +474,7 @@ Peserta mampu:
 
 ---
 
-### 6.1. Data yang Digunakan
+### 4.1. Data yang Digunakan
 
 * Layer poligon `kabkota` yang sudah di-join dengan tabel `ringkasan_tren_OPT`.
 * Field kunci:
@@ -643,7 +483,7 @@ Peserta mampu:
 
 ---
 
-### 6.2. Menentukan Batas Kelas Hotspot (Metode Kuantil)
+### 4.2. Menentukan Batas Kelas Hotspot (Metode Kuantil)
 
 1. Klik dua kali layer `kabkota` → **Properties → Symbology**.
 2. Pilih:
@@ -682,7 +522,7 @@ Dari contoh di atas dapat didefinisikan:
 
 ---
 
-### 6.3. Membuat Field Kategori Hotspot
+### 4.3. Membuat Field Kategori Hotspot
 
 1. Buka **Attribute Table** layer `kabkota`.
 2. Klik ikon **Field Calculator**.
@@ -709,7 +549,7 @@ Sekarang tiap kab/kota punya kategori:
 
 ---
 
-### 6.4. Simbolisasi Peta Hotspot Sederhana
+### 4.4. Simbolisasi Peta Hotspot Sederhana
 
 1. Buka **Properties → Symbology**.
 2. Pilih **Categorized**.
@@ -730,7 +570,7 @@ Peta sekarang menonjolkan:
 
 ---
 
-### 6.5. Interpretasi dan Diskusi
+### 4.5. Interpretasi dan Diskusi
 
 Pertanyaan yang dapat digunakan untuk diskusi kelas:
 
@@ -744,14 +584,14 @@ Pertanyaan yang dapat digunakan untuk diskusi kelas:
 ---
 
 <a id="praktikum-7"></a> 
-## Praktikum 7 – Pembuatan Layout Peta Tren & Hotspot
+## Praktikum 5 – Pembuatan Layout Peta Tren & Hotspot
 
 **Tujuan:**
 Peserta dapat menyusun layout peta yang rapi dan siap dimasukkan ke laporan atau presentasi.
 
 ---
 
-### 7.1. Layout Peta Tren
+### 5.1. Layout Peta Tren
 
 1. Menu **Project → New Print Layout…**
 2. Beri nama layout: `Peta_Tren_OPT`.
@@ -781,7 +621,7 @@ Peserta dapat menyusun layout peta yang rapi dan siap dimasukkan ke laporan atau
 
 ---
 
-### 7.2. Layout Peta Hotspot
+### 5.2. Layout Peta Hotspot
 
 1. Buat layout baru atau duplikasi layout sebelumnya.
 
@@ -799,7 +639,7 @@ Pastikan legenda menjelaskan dengan jelas:
 
 ---
 
-### 7.3. Ekspor Layout
+### 5.3. Ekspor Layout
 
 1. Di jendela layout:
 
@@ -814,9 +654,9 @@ Pastikan legenda menjelaskan dengan jelas:
 
 ---
 
-# 7. Penutup dan Tugas Lanjutan
+# 6. Penutup dan Tugas Lanjutan
 
-## 7.1. Ringkasan Praktikum
+## 6.1. Ringkasan Praktikum
 
 Melalui rangkaian praktikum ini, peserta telah:
 
@@ -828,7 +668,7 @@ Melalui rangkaian praktikum ini, peserta telah:
 
 ---
 
-## 7.2. Tugas Mandiri (Asinkron)
+## 6.2. Tugas Mandiri (Asinkron)
 
 Sebagai latihan mandiri, peserta dapat mencoba:
 
