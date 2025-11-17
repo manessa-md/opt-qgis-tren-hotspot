@@ -58,10 +58,9 @@
 
 - [Praktikum 1 – Proyek & Peta Kab/Kota](#praktikum-1)
 - [Praktikum 2 – Data Serangan OPT](#praktikum-2)
-- [Praktikum 3 – Join Kab/Kota & OPT](#praktikum-3)
-- [Praktikum 4 – Peta Tren Serangan](#praktikum-5)
-- [Praktikum 5 – Hotspot Sederhana](#praktikum-6)
-- [Praktikum 6 – Layout Peta](#praktikum-7)
+- [Praktikum 3 – Join Data OPT ke Peta Kab/Kota & Tren](#praktikum-3)
+- [Praktikum 4 – Hotspot Sederhana](#praktikum-4)
+- [Praktikum 5 – Layout Peta](#praktikum-5)
 
 </div>
 
@@ -198,7 +197,7 @@ Alternatif (di QGIS): gunakan **Processing → Refactor Fields** untuk mengganti
 ---
 
 <a id="praktikum-3"></a>
-## Praktikum 3 – Join Data OPT ke Peta Kab/Kota & Ringkasan Tren
+## Praktikum 3 – Join Data OPT ke Peta Kab/Kota & Tren
 
 **Tujuan:**
 Peserta mampu:
