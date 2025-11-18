@@ -306,6 +306,79 @@ SELECT
 FROM stat;
 ```
 
+### 5.x. Ringkasan Serangan Kumbang Nyiur pada Kelapa dan Tren Total Serangan OPT
+
+Pada bagian ini kita akan:
+- Menghitung **rata-rata luas serangan (`mean_L_SERANG`)** dan **rata-rata kerugian (`mean_RUGI_RP`)** khusus untuk  
+  **OPT: Kumbang nyiur (Oryctes rhinoceros)** pada **komoditas: Kelapa**.
+- Menghitung **tren total serangan OPT (semua jenis OPT dan komoditas)** per kabupaten/kota dari tahun 2018–2025  
+  menggunakan regresi linear sederhana terhadap waktu (Tahun).
+
+#### Langkah di QGIS (Virtual Layer)
+
+1. Pastikan layer tabel **`dataOPT`** sudah ter-load di QGIS (format bisa `.csv` / `.xlsx` yang sudah di-add sebagai layer).
+2. Buka menu: **Layer → Add Layer → Add/Edit Virtual Layer…**
+3. Pada kolom **Name**, isi misalnya: `ringkasan_tren_kumbang_nyiur_kelapa`.
+4. Pada bagian **Query**, paste SQL berikut:
+
+```sql
+WITH per_tahun_trend AS (
+    -- TANPA filter: dipakai untuk analisa tren total serangan OPT
+    SELECT
+        Kab_Kota,
+        Tahun,
+        SUM(L_SERANG) AS L_SERANG_tahun
+    FROM dataOPT
+    WHERE Tahun BETWEEN 2018 AND 2025
+    GROUP BY Kab_Kota, Tahun
+),
+stat_trend AS (
+    SELECT
+        Kab_Kota,
+        COUNT(*)                    AS n,
+        SUM(Tahun)                  AS sumX,
+        SUM(L_SERANG_tahun)         AS sumY,
+        SUM(Tahun * Tahun)          AS sumX2,
+        SUM(Tahun * L_SERANG_tahun) AS sumXY
+    FROM per_tahun_trend
+    GROUP BY Kab_Kota
+),
+per_tahun_opt AS (
+    -- DENGAN filter: khusus Kumbang nyiur (Oryctes rhinoceros) pada komoditas Kelapa
+    SELECT
+        Kab_Kota,
+        Tahun,
+        SUM(L_SERANG) AS L_SERANG_tahun,
+        SUM(RUGI_RP)  AS RUGI_RP_tahun
+    FROM dataOPT
+    WHERE Tahun BETWEEN 2018 AND 2025
+      AND "jenis_opt_std" = 'Penggerek buah kakao (Conopomorpha cramerella)'
+      AND "Jenis Komoditas" = 'Kakao'
+    GROUP BY Kab_Kota, Tahun
+),
+stat_mean AS (
+    SELECT
+        Kab_Kota,
+        AVG(L_SERANG_tahun) AS mean_L_SERANG,
+        AVG(RUGI_RP_tahun)  AS mean_RUGI_RP
+    FROM per_tahun_opt
+    GROUP BY Kab_Kota
+)
+SELECT
+    m.Kab_Kota,
+    m.mean_L_SERANG,
+    m.mean_RUGI_RP,
+    CASE
+        WHEN (t.n * t.sumX2 - t.sumX * t.sumX) = 0 THEN NULL
+        ELSE
+            (1.0 * t.n * t.sumXY - t.sumX * t.sumY)
+            / (1.0 * t.n * t.sumX2 - t.sumX * t.sumX)
+    END AS trend_serangan
+FROM stat_mean m
+JOIN stat_trend t
+  ON m.Kab_Kota = t.Kab_Kota;
+```
+
 5. Klik **Add → Close**.
    Virtual Layer `ringkasan_tren_OPT` sekarang muncul sebagai tabel baru.
 
