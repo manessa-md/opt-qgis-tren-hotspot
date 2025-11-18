@@ -328,7 +328,7 @@ WITH per_tahun_trend AS (
         Kab_Kota,
         Tahun,
         SUM(L_SERANG) AS L_SERANG_tahun
-    FROM dataOPTclean
+    FROM dataOPT
     WHERE Tahun BETWEEN 2018 AND 2025
     GROUP BY Kab_Kota, Tahun
 ),
@@ -353,7 +353,7 @@ per_tahun_opt AS (
     FROM dataOPT
     WHERE Tahun BETWEEN 2018 AND 2025
       AND "jenis_opt_std" = 'Penggerek buah kakao (Conopomorpha cramerella)'
-      AND "Jenis Komoditas" = 'Kakao'
+      AND "Jenis_komoditas" = 'Kakao'
     GROUP BY Kab_Kota, Tahun
 ),
 stat_mean AS (
@@ -412,7 +412,7 @@ WITH per_tahun_trend AS (
         Kab_Kota,
         Tahun,
         SUM(L_SERANG) AS L_SERANG_tahun
-    FROM dataOPTclean
+    FROM dataOPT
     WHERE Tahun BETWEEN 2018 AND 2025
     GROUP BY Kab_Kota, Tahun
 ),
@@ -436,7 +436,6 @@ per_tahun_opt AS (
         SUM(RUGI_RP)  AS RUGI_RP_tahun
     FROM dataOPT
     WHERE Tahun BETWEEN 2018 AND 2025
-      AND "jenis_opt_std" = 'Penggerek buah kakao (Conopomorpha cramerella)'
       AND "Jenis_komoditas" = 'Kakao'
     GROUP BY Kab_Kota, Tahun
 ),
