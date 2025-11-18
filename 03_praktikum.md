@@ -328,7 +328,7 @@ WITH per_tahun_trend AS (
         Kab_Kota,
         Tahun,
         SUM(L_SERANG) AS L_SERANG_tahun
-    FROM dataOPT
+    FROM dataOPTclean
     WHERE Tahun BETWEEN 2018 AND 2025
     GROUP BY Kab_Kota, Tahun
 ),
