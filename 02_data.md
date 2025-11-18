@@ -61,7 +61,7 @@ Ringkas:
 
 ### 4.2.1. Peta Administrasi Kab/Kota
 
-- Data dapat diakses pada tautan [Data Drive]([./01_pendahuluan.html](https://drive.google.com/drive/folders/1doE0XXM6Kpg5k5MQgSj94URpf7nqtYcG?usp=sharing))    
+- Data dapat diakses pada tautan [Data Drive](https://drive.google.com/drive/folders/1doE0XXM6Kpg5k5MQgSj94URpf7nqtYcG?usp=sharing).
 - **Format**: Shapefile (`.shp`) atau GeoPackage (`.gpkg`).
 - **Atribut minimal**:
   - `K_ID` / `KODE_KAB`
