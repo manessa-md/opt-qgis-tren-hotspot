@@ -379,6 +379,132 @@ JOIN stat_trend t
   ON m.Kab_Kota = t.Kab_Kota;
 ```
 
+### Ringkasan Tren Serangan OPT (Penggerek Buah Kakao)
+
+Bagian ini membuat **tabel ringkasan per Kab/Kota** berisi:
+
+- Rata-rata luas serangan per tahun (`mean_L_SERANG`)
+- Rata-rata kerugian per tahun (`mean_RUGI_RP`)
+- Standar deviasi luas serangan (`sd_L_SERANG`)
+- Standar deviasi kerugian (`sd_RUGI_RP`)
+- Tren serangan total OPT per tahun (`trend_serangan`, slope regresi linier)
+- Kategori **hotspot** berbasis tren serangan total
+
+Query ini diasumsikan dijalankan sebagai **Virtual Layer** di QGIS dengan sumber data:
+
+- Tabel `dataOPTclean` : semua OPT (dipakai untuk tren total)
+- Tabel `dataOPT`      : difilter khusus
+  `jenis_opt_std = 'Penggerek buah kakao (Conopomorpha cramerella)'`
+  dan `Jenis Komoditas = 'Kakao'`
+
+#### Langkah di QGIS
+
+1. Pastikan layer/tabel `dataOPTclean` dan `dataOPT` sudah ada di **Layers Panel**.
+2. Menu **Layer → Add Layer → Add/Edit Virtual Layer…**
+3. Name: misalnya `ringkasan_tren_OPT_kakao_pbk`
+4. Geometry type: **No geometry**
+5. Paste SQL berikut, lalu klik **Add**, kemudian **OK**.
+
+```sql
+WITH per_tahun_trend AS (
+    -- TANPA filter: dipakai untuk analisa tren total serangan OPT
+    SELECT
+        Kab_Kota,
+        Tahun,
+        SUM(L_SERANG) AS L_SERANG_tahun
+    FROM dataOPTclean
+    WHERE Tahun BETWEEN 2018 AND 2025
+    GROUP BY Kab_Kota, Tahun
+),
+stat_trend AS (
+    SELECT
+        Kab_Kota,
+        COUNT(*)                    AS n,
+        SUM(Tahun)                  AS sumX,
+        SUM(L_SERANG_tahun)         AS sumY,
+        SUM(Tahun * Tahun)          AS sumX2,
+        SUM(Tahun * L_SERANG_tahun) AS sumXY
+    FROM per_tahun_trend
+    GROUP BY Kab_Kota
+),
+per_tahun_opt AS (
+    -- DENGAN filter: khusus Penggerek buah kakao pada komoditas Kakao
+    SELECT
+        Kab_Kota,
+        Tahun,
+        SUM(L_SERANG) AS L_SERANG_tahun,
+        SUM(RUGI_RP)  AS RUGI_RP_tahun
+    FROM dataOPT
+    WHERE Tahun BETWEEN 2018 AND 2025
+      AND "jenis_opt_std" = 'Penggerek buah kakao (Conopomorpha cramerella)'
+      AND "Jenis_komoditas" = 'Kakao'
+    GROUP BY Kab_Kota, Tahun
+),
+stat_mean AS (
+    -- Rata-rata + komponen untuk hitung standar deviasi manual
+    SELECT
+        Kab_Kota,
+        COUNT(*) AS n_opt,
+        AVG(L_SERANG_tahun) AS mean_L_SERANG,
+        AVG(RUGI_RP_tahun)  AS mean_RUGI_RP,
+        SUM(L_SERANG_tahun) AS sum_L_SERANG,
+        SUM(L_SERANG_tahun * L_SERANG_tahun) AS sum_L_SERANG2,
+        SUM(RUGI_RP_tahun) AS sum_RUGI_RP,
+        SUM(RUGI_RP_tahun * RUGI_RP_tahun) AS sum_RUGI_RP2
+    FROM per_tahun_opt
+    GROUP BY Kab_Kota
+)
+SELECT
+    m.Kab_Kota,
+    -- rata-rata per tahun (OPT spesifik)
+    m.mean_L_SERANG,
+    m.mean_RUGI_RP,
+
+    -- standar deviasi L_SERANG_tahun (sampel)
+    CASE
+        WHEN m.n_opt > 1 THEN
+            sqrt(
+                (1.0 * m.n_opt * m.sum_L_SERANG2 - m.sum_L_SERANG * m.sum_L_SERANG)
+                / (1.0 * m.n_opt * (m.n_opt - 1))
+            )
+        ELSE NULL
+    END AS sd_L_SERANG,
+
+    -- standar deviasi RUGI_RP_tahun (sampel)
+    CASE
+        WHEN m.n_opt > 1 THEN
+            sqrt(
+                (1.0 * m.n_opt * m.sum_RUGI_RP2 - m.sum_RUGI_RP * m.sum_RUGI_RP)
+                / (1.0 * m.n_opt * (m.n_opt - 1))
+            )
+        ELSE NULL
+    END AS sd_RUGI_RP,
+
+    -- tren serangan total OPT (tanpa filter jenis OPT)
+    CASE
+        WHEN (t.n * t.sumX2 - t.sumX * t.sumX) = 0 THEN NULL
+        ELSE
+            (1.0 * t.n * t.sumXY - t.sumX * t.sumY)
+            / (1.0 * t.n * t.sumX2 - t.sumX * t.sumX)
+    END AS trend_serangan,
+
+    -- kategori hotspot sederhana berbasis tren
+    CASE
+        WHEN (t.n * t.sumX2 - t.sumX * t.sumX) = 0 THEN NULL
+        WHEN (
+            (1.0 * t.n * t.sumXY - t.sumX * t.sumY)
+            / (1.0 * t.n * t.sumX2 - t.sumX * t.sumX)
+        ) > 0
+            THEN 'Hotspot (tren naik)'
+        ELSE 'Bukan hotspot / tren turun'
+    END AS kategori_hotspot
+
+FROM stat_mean m
+JOIN stat_trend t
+  ON m.Kab_Kota = t.Kab_Kota;
+```
+
+
 5. Klik **Add → Close**.
    Virtual Layer `ringkasan_tren_OPT` sekarang muncul sebagai tabel baru.
 
